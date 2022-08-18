@@ -25,6 +25,7 @@ class CityForm extends Component {
         e.preventDefault();
         let url = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_API_KEY}&q=${this.state.query.toLowerCase()}&format=json`;
         axios.get(url).then(response => {
+            console.log(response.data);
             this.setState({
                 display_name: response.data[0].display_name,
                 latitude: response.data[0].lat,
