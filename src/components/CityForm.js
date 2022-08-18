@@ -13,10 +13,10 @@ class CityForm extends Component {
         this.state = {
             query: '',
             data: {
-               display_name: '' ,
-               latitude: '',
-               longitude: '',
-
+                display_name: '' ,
+                latitude: '',
+                longitude: '',
+                map: '',
             },
         }
     }
@@ -30,6 +30,7 @@ class CityForm extends Component {
                 display_name: response.data[0].display_name,
                 latitude: response.data[0].lat,
                 longitude: response.data[0].lon,
+                map: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_API_KEY}&center=${response.data[0].lat},${response.data[0].lon}`
             })
         });
     }
@@ -50,6 +51,7 @@ class CityForm extends Component {
                     </Button>
                 </Form>
                 <Card>
+                    <Card.Img src={this.state.map} />
                     <Card.Title>{this.state.display_name}</Card.Title>
                     <Card.Text>Latitude: {this.state.latitude}</Card.Text>
                     <Card.Text>Longitude: {this.state.longitude}</Card.Text>
