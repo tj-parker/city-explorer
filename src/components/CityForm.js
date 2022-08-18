@@ -30,7 +30,7 @@ class CityForm extends Component {
                 display_name: response.data[0].display_name,
                 latitude: response.data[0].lat,
                 longitude: response.data[0].lon,
-                map: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_API_KEY}&center=${response.data[0].lat},${response.data[0].lon}&zoom=0`
+                map: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_API_KEY}&center=${response.data[0].lat},${response.data[0].lon}&zoom=11`
             })
         });
     }
