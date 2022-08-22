@@ -34,7 +34,7 @@ class CityForm extends Component {
                     longitude: 'Longitude: ' + response.data[0].lon,
                     map: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_API_KEY}&center=${response.data[0].lat},${response.data[0].lon}&zoom=12`
                 })
-            .catch(error => {
+            }).catch(error => {
                 this.setState({
                     error: {
                         status: error.response.status,
@@ -42,7 +42,6 @@ class CityForm extends Component {
                     }
                 })
                 console.log(error);
-            })
             });
     }
 
